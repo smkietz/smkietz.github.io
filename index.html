@@ -34,7 +34,7 @@
 						if (data[i].major == "CIT")
 							contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + <"</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
 						else
-							;
+							"<p>THIS ISNT WORKING</p>";
                 	}
 					
                 	contents += "</table>";
@@ -47,8 +47,8 @@
   
         request.send(null);
     };
-	
-    	document.querySelector('#busMajors').onclick = function(){   // attach to button
+	/*
+    	document.querySelector('#busMajors').onclick = function(){
 
         	var request = new XMLHttpRequest();
         	request.open('GET', 'cit5students.json');
@@ -62,7 +62,7 @@
 					
             		for(i = 0; i < data.length; i++) {
 						if (data[i].major == "BUS")
-							contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + <"</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>"; // add major to this
+							contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + <"</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
 						else
 							;
                 	}
@@ -77,7 +77,7 @@
   
         request.send(null);
     };
-	
+	*/
   });
    
 </script>
