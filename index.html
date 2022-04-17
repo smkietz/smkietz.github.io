@@ -27,9 +27,9 @@
 </script>
   
 <script>
-    document.addEventListener('DOMContentLoaded', function() {      // when page has loaded, more or less
+  //  document.addEventListener('DOMContentLoaded', function() {      // when page has loaded, more or less
 													  
-    	document.querySelector('#citStudents').onclick = function(){   // attach to button
+    //	document.querySelector('#citStudents').onclick = function(){   // attach to button
    		 var request = new XMLHttpRequest();
    		 var url = "cit5students.json";
     		 request.open('GET', url);     // open the request
@@ -48,8 +48,8 @@
         		  	document.querySelector('#peopleTable').innerHTML = "There was an error, or currency symbol not found";
       			}
     		};
-	};
-    });
+//	};
+  //  });
 
     request.send(null);
   
