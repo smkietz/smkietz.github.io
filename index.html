@@ -4,49 +4,38 @@
 </head>
 <body style='margin-left: 30px;'>
 
-    <h1>Select a Major</h1>
+    <h1>CIT7 Students</h1>
+    <p>CIT7 students: &nbsp;Exam 1 Scores</p>
         
-    <input type="button" id='btn' value="CIT Majors">
-	<input type="button" id='busStudents' value="Buisness Majors">
+    <input type="button" id='btn' value="Get Student Scores">
              
  	<div id="result"></div>
 
- 	<h3>We filter our dataset by major</h3>
-	
-	
-	
-	
-	
-	   	<div id = 'demo'></div>
-
+ 	<p> Example of the JSON data structure this Ajax request returns:&nbsp; an array of student objects.
+    <pre><strong>[
+ {"name":"Alice","midterm":95,"final":97},
+ {"name":"Bryan","midterm":68,"final":80}
+]
+ 	</strong></pre></p>
     
 <script>
-	var text = "message";
-	
-	
+   
     document.addEventListener('DOMContentLoaded', function() {      // when page has loaded, more or less
 													  
     	document.querySelector('#btn').onclick = function(){   // attach to button
-		
-		document.getElementById("demo").innterHTML = text;
 
         	var request = new XMLHttpRequest();
         	request.open('GET', 'cit5students.json');
 
         	request.onload = function(){
 
-			"<p>Line 32</p>";
-			
             	var data = JSON.parse(request.responseText);
 			
             	if (request.status == 200) {
             		var contents = "<table cellspacing='5'><tr><td>Name</td><td>Midterm</td><td>Final</td></tr>"
 					
             		for(i = 0; i < data.length; i++) {
-						if (data[i].major == "CIT")
-							contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + <"</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
-						else
-							"<p>THIS ISNT WORKING</p>";
+                     	contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
                 	}
 					
                 	contents += "</table>";
@@ -56,44 +45,14 @@
                 	document.querySelector('#result').innerHTML = "There was an error.";
             	}
         }
-  
+
         request.send(null);
     };
-	/*
-    	document.querySelector('#busMajors').onclick = function(){
-
-        	var request = new XMLHttpRequest();
-        	request.open('GET', 'cit5students.json');
-
-        	request.onload = function(){
-
-            	var data = JSON.parse(request.responseText);
-			
-            	if (request.status == 200) {
-            		var contents = "<table cellspacing='5'><tr><td><b>Name></b></td><td><tr><b>Major</b></tr></td><td><b>Midterm</b></td><td><b>Final</b></td></tr>"
-					
-            		for(i = 0; i < data.length; i++) {
-						if (data[i].major == "BUS")
-							contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + <"</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
-						else
-							;
-                	}
-					
-                	contents += "</table>";
-                	document.querySelector('#result').innerHTML = contents;
-            	}
-            	else {
-                	document.querySelector('#result').innerHTML = "There was an error.";
-            	}
-        }
-  
-        request.send(null);
-    };
-	*/
+	
   });
    
 </script>
-
+   
    
 </body>
 </html>
