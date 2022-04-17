@@ -32,11 +32,11 @@
             	var data = JSON.parse(request.responseText);
 			
             	if (request.status == 200) {
-            		var contents = "<table cellspacing='5'><tr><td><b>Name</b></td><td>Midterm</td><td>Midterm</td><td>Final</td></tr>"
+            		var contents = "<table cellspacing='5'><tr><td><b>Name</b></td><td><b>Major</b></td><td><b>Midterm</b></td><td><b>Final</b></td></tr>"
 					
             		for(i = 0; i < data.length; i++) {
 			   	 if (data[i].major == "CIT")
-                     	       		 contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
+                     	       		 contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
                 	}               
 					
                 	contents += "</table>";
