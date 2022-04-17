@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html><head>  <meta charset="UTF-8">
+        <title>students</title>
+</head>
+<body style='margin-left: 30px;'>
+
+    <h1>CIT7 Students</h1>
+    <p>CIT7 students: &nbsp;Exam 1 Scores</p>
+        
+    <input type="button" id='citStudents' value="CIT Majors">
+	<input type="button" id='busStudents' value="Buisness Majors">
+             
+ 	<div id="result"></div>
+
+ 	<h3>We filter our dataset by major</h3>
+    
+<script>
+   
+    document.addEventListener('DOMContentLoaded', function() {      // when page has loaded, more or less
+													  
+    	document.querySelector('#citStudents').onclick = function(){   // attach to button
+
+        	var request = new XMLHttpRequest();
+        	request.open('GET', 'cit5students.json');
+
+        	request.onload = function(){
+
+            	var data = JSON.parse(request.responseText);
+			
+            	if (request.status == 200) {
+            		var contents = "<table cellspacing='5'><tr><td>Name</td><td>Midterm</td><td>Final</td></tr>"
+					
+            		for(i = 0; i < data.length; i++) {
+						if (data[i].major == "CIT")
+							contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + <"</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
+						else
+							;
+                	}
+					
+                	contents += "</table>";
+                	document.querySelector('#result').innerHTML = contents;
+            	}
+            	else {
+                	document.querySelector('#result').innerHTML = "There was an error.";
+            	}
+        }
+  
+        request.send(null);
+    };
+	
+    	document.querySelector('#busMajors').onclick = function(){   // attach to button
+
+        	var request = new XMLHttpRequest();
+        	request.open('GET', 'cit5students.json');
+
+        	request.onload = function(){
+
+            	var data = JSON.parse(request.responseText);
+			
+            	if (request.status == 200) {
+            		var contents = "<table cellspacing='5'><tr><td><b>Name></b></td><td><tr><b>Major</b></tr></td><td><b>Midterm</b></td><td><b>Final</b></td></tr>"
+					
+            		for(i = 0; i < data.length; i++) {
+						if (data[i].major == "BUS")
+							contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + <"</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>"; // add major to this
+						else
+							;
+                	}
+					
+                	contents += "</table>";
+                	document.querySelector('#result').innerHTML = contents;
+            	}
+            	else {
+                	document.querySelector('#result').innerHTML = "There was an error.";
+            	}
+        }
+  
+        request.send(null);
+    };
+	
+  });
+   
+</script>
+   
+   
+</body>
+</html>
