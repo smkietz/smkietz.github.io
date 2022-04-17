@@ -6,7 +6,7 @@
 
     <h1>Select a Major</h1>
         
-    <input type="button" id='citStudents' value="CIT Majors">
+    <input type="button" id='btn' value="CIT Majors">
 	<input type="button" id='busStudents' value="Buisness Majors">
              
  	<div id="result"></div>
@@ -22,13 +22,13 @@
     
 <script>
 	var text = "message";
-	document.getElementById("demo").innterHTML = text;
+	
 	
     document.addEventListener('DOMContentLoaded', function() {      // when page has loaded, more or less
 													  
-    	document.querySelector('#citStudents').onclick = function(){   // attach to button
+    	document.querySelector('#btn').onclick = function(){   // attach to button
 		
-		document.getElementById("demo").innterHTML = 31;
+		document.getElementById("demo").innterHTML = text;
 
         	var request = new XMLHttpRequest();
         	request.open('GET', 'cit5students.json');
