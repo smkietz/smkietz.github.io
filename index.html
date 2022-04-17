@@ -12,14 +12,21 @@
  	<div id="result"></div>
 
  	<h3>We filter our dataset by major</h3>
+	
+	
+	
+	
+	
+	
+	<pid = "demo"></p>
     
 <script>
 	
-	console.log("<p>Line 18</p>");
+	document.getElementById("demo").innterHTML = 25;
 	
     document.addEventListener('DOMContentLoaded', function() {      // when page has loaded, more or less
 	    
-	   console.log("<p>Line 21</p>");
+	   document.getElementById("demo").innterHTML = 29;
 													  
     	document.querySelector('#citStudents').onclick = function(){   // attach to button
 		
