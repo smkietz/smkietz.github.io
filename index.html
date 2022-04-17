@@ -25,12 +25,10 @@
 	document.getElementById("demo").innterHTML = 25;
 	
     document.addEventListener('DOMContentLoaded', function() {      // when page has loaded, more or less
-	    
-	   document.getElementById("demo").innterHTML = 29;
 													  
     	document.querySelector('#citStudents').onclick = function(){   // attach to button
 		
-		"<p>Line 25</p>";
+		document.getElementById("demo").innterHTML = 31;
 
         	var request = new XMLHttpRequest();
         	request.open('GET', 'cit5students.json');
