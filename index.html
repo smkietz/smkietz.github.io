@@ -4,8 +4,7 @@
 </head>
 <body style='margin-left: 30px;'>
 
-    <h1>CIT7 Students</h1>
-    <p>CIT7 students: &nbsp;Exam 1 Scores</p>
+    <h1>Select a Major</h1>
         
     <input type="button" id='citStudents' value="CIT Majors">
 	<input type="button" id='busStudents' value="Buisness Majors">
@@ -15,22 +14,20 @@
  	<h3>We filter our dataset by major</h3>
     
 <script>
-	"<p>Line 18</p>"
-   
     document.addEventListener('DOMContentLoaded', function() {      // when page has loaded, more or less
 	    
-	    "<p>Line 21</p>"
+	   // console.log("<p>Line 21</p>");
 													  
     	document.querySelector('#citStudents').onclick = function(){   // attach to button
 		
-		"<p>Line 25</p>"
+		"<p>Line 25</p>";
 
         	var request = new XMLHttpRequest();
         	request.open('GET', 'cit5students.json');
 
         	request.onload = function(){
 
-			"<p>Line 32</p>"
+			"<p>Line 32</p>";
 			
             	var data = JSON.parse(request.responseText);
 			
