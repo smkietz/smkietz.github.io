@@ -54,38 +54,6 @@
 	request.send(null);
 		
 	};
-	    
-	document.querySelector('#busStudents').onclick = function(){   // attach to button
-   		 var request = new XMLHttpRequest();
-   		 var url = "cit5students.json";
-    		 request.open('GET', url);     // open the request
-	
-   		 request.onload = function() {                     // the data is back...
-
-      		  var data = JSON.parse(request.responseText);    // de-stringify JSON back to regular array of JavaScript objects
-
-      		  	if (request.status == 200) {
-        			var templateText = document.getElementById('tableTemplate').innerHTML; // Get template text 
-				
-				var busMajorTemplateText = templateText.filter(filterMajor)
-				
-				function filterMajor(function(busMajorTemplateText) {
-					return busMajorTemplateText.major == "BUS";	
-				});
-				
-         		        var compiledTemplateText = Handlebars.compile(templateText);    // Compile the Handlebars template
-          		        compiledHtml = compiledTemplateText({ rows: data })             // Evaluate the template
-					  document.getElementById('peopleTable').innerHTML = compiledHtml; 	// put html table into division
-     		  	}
-      		  	else {
-        		  	document.querySelector('#peopleTable').innerHTML = "There was an error, or currency symbol not found";
-      			}
-    		};
-	
-		
-	request.send(null);
-		
-	};
     });
 
     
