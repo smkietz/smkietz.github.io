@@ -60,6 +60,38 @@
 	};
     });
 
+	
+    document.addEventListener('DOMContentLoaded', function() {      // when page has loaded, more or less
+													  
+    	document.querySelector('#busStudents').onclick = function(){   // attach to button
+   		 var request = new XMLHttpRequest();
+   		 var url = "cit5students.json";
+    		 request.open('GET', url);     // open the request
+	
+   		 request.onload = function() {                     // the data is back...
+
+      		  var data = JSON.parse(request.responseText);    // de-stringify JSON back to regular array of JavaScript objects
+			 
+		  var busMajors = data.filter(function(student) {
+			return student.major == "BUS";  
+		  });
+
+      		  	if (request.status == 200) {
+        			var templateText = document.getElementById('tableTemplate').innerHTML; // Get template text 
+         		        var compiledTemplateText = Handlebars.compile(templateText);    // Compile the Handlebars template
+          		        compiledHtml = compiledTemplateText({ rows: busMajors })             // Evaluate the template
+					  document.getElementById('peopleTable').innerHTML = compiledHtml; 	// put html table into division
+     		  	}
+      		  	else {
+        		  	document.querySelector('#peopleTable').innerHTML = "There was an error, or currency symbol not found";
+      			}
+    		};
+	
+		
+	request.send(null);
+		
+	};
+    });
     
   
 </script>
