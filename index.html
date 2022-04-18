@@ -38,6 +38,10 @@
    		 request.onload = function() {                     // the data is back...
 
       		  var data = JSON.parse(request.responseText);    // de-stringify JSON back to regular array of JavaScript objects
+			 
+		  var citMajors = data.filter(function(student) {
+			return student.major == "CIT";  
+		  });
 
       		  	if (request.status == 200) {
         			var templateText = document.getElementById('tableTemplate').innerHTML; // Get template text 
