@@ -8,7 +8,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> 
 
 </head>
-<body ng-app = "homeApp">
+<body ng-app = "studentDataApp">
 
 <div class="container">
 <nav class="navbar navbar-inverse">
@@ -21,7 +21,7 @@
 
 </nav>
 
-<div ng-controller = "homeCtrl">
+<div ng-controller = "studentDataCtrl">
 
 <h2>Students</h2>
           <p><input type='text' ng-model='search_text' > Enter Search text</p>
@@ -48,14 +48,17 @@
 </div> 
 
 <script>
-var app = angular.module('homeApp', []);
-
-app.controller('homeCtrl', function($scope, $http) {
-  
-     var today = new Date();
-     $scope.date= today.toDateString()
-	   
-});
+var app = angular.module('studentsApp', []);
+	  
 		  
-</script>
-</body></html>
+app.controller('allCtrl', function($scope, $http) {
+    
+   $http.get("students.json")
+     .then(function (response) {
+	    $scope.students = response.data;  
+     });
+
+});
+
+</body>
+</html>
